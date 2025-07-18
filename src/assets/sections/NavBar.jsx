@@ -7,12 +7,14 @@ import Cart from '@mui/icons-material/ShoppingCart';
 import Login from '@mui/icons-material/Login';
 import { useRef, useState } from "react";
 import { useOutsideClick } from "./useOutSideClick";
+import { getProductCart } from "./addToCart";
 
 export const Header = () => {
+    const { cartItems } = getProductCart();
     /* function Open & close Search Input */
     const [openSearch, setOpenSearch] = useState(false);
     const searchRef = useRef();
-
+    
     useOutsideClick(searchRef, () => setOpenSearch(false));
     const openSearchFnc = (e) => setOpenSearch(e);
 
@@ -60,7 +62,7 @@ export const Header = () => {
                     </div>
                     <div className={`p-1 cursor-pointer md:hidden  ${openMenu ? 'hidden' : 'block'}`} ref={menuRef} onClick={() => openMenuFuc(!openMenu)}><MenuBtn /></div>
                     <div className={`p-1 cursor-pointer ${openMenu ? 'block' : 'hidden'}`}><Close /></div>
-                    <div className={`p-1 cursor-pointer relative`}><Cart /> <span className="bg-red-600 absolute -top-2 hero-image-x text-xs px-1 text-white rounded-full">0</span></div>
+                    <Link to="/checkout" className={`p-1 cursor-pointer relative`}><Cart /> <span className="bg-red-600 absolute -top-2 hero-image-x text-xs px-1 text-white rounded-full">{cartItems.length}</span></Link>
                     <div className="p-1 cursor-pointer"><Login /></div>
                 </div>
             </div>

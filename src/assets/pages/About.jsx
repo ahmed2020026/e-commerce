@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const About = () => {
+const About = () => {
     return (
         <section className="pt-35 pb-8 px-3">
             <div className="container shadow-md border-t border-t-[#cccccc57] rounded-md">
@@ -47,3 +47,5 @@ export const About = () => {
         </section>
     )
 }
+
+export default About;

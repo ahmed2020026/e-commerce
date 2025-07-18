@@ -1,10 +1,10 @@
 import Shopping from '@mui/icons-material/AddShoppingCartOutlined';
 import { useParams } from "react-router-dom";
 import { useProduct } from "../sections/useAPI";
+import { getProductCart } from '../sections/addToCart';
 
-
-
-export const ProductDetails = () => {
+const ProductDetails = () => {
+    const { AddToCart } = getProductCart();
     const {id} = useParams();
     /* calc price */
     const priceAfterDiscount = (price , discount) => ( price - price * discount / 100 );
@@ -33,7 +33,7 @@ export const ProductDetails = () => {
                             <p className="text-lg font-medium">{product.color}</p>
                             <p className="text-lg text-gray-500 my-3">{product.description}</p>
                             <div className="btns mt-5">
-                                <button className="bg-sky-500 hover:bg-sky-700 duration-300 text-lg p-2 px-5 cursor-pointer text-center text-white rounded-lg"><Shopping /> <span className='ml-2'>Add To Cart</span></button>
+                                <button onClick={() => AddToCart(product)} className="bg-sky-500 hover:bg-sky-700 duration-300 text-lg p-2 px-5 cursor-pointer text-center text-white rounded-lg"><Shopping /> <span className='ml-2'>Add To Cart</span></button>
                             </div>
                         </div>
                     </div>
@@ -42,3 +42,5 @@ export const ProductDetails = () => {
         </>
     )
 }
+
+export default ProductDetails;

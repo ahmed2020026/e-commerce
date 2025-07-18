@@ -1,8 +1,10 @@
 import Shopping from '@mui/icons-material/AddShoppingCartOutlined';
 import { Link } from 'react-router-dom';
-
+import { getProductCart } from './addToCart';
 
 export const Cart = ({ product: props }) => {
+    const { cartItems, AddToCart, removeFromCart, clearCart } = getProductCart();
+    
     return (
         <>
             <div className="p-3">
@@ -15,7 +17,7 @@ export const Cart = ({ product: props }) => {
                         <p className="text-red-500 font-semibold">{props.price}$</p>
                     </div>
                     <div className="btns mt-5">
-                        <button className="bg-sky-500 block w-full hover:bg-sky-700 duration-300 text-lg p-2 cursor-pointer text-center text-white rounded-lg" onClick={() => addToCart(props)}><Shopping /> <span className='ml-2'>Add To Cart</span></button>
+                        <button onClick={() => AddToCart(props)} className="bg-sky-500 block w-full hover:bg-sky-700 duration-300 text-lg p-2 cursor-pointer text-center text-white rounded-lg"><Shopping /> <span className='ml-2'>Add To Cart</span></button>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import User from '@mui/icons-material/Person';
-export const Contact = () => {
+const Contact = () => {
     return (
         <section className="pt-35 pb-8 px-3">
             <div className="container shadow-md border-t border-t-[#cccccc57] rounded-md">
@@ -53,3 +53,5 @@ export const Contact = () => {
         </section>
     )
 }
+
+export default Contact;

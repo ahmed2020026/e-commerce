@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react"
 export const Product = createContext(null);
 
-export const ProductData = ({ children }) => {
+const ProductData = ({ children }) => {
     const [Data, setData] = useState([]);
     useEffect(() => {
         const loadData = async () => {
@@ -19,4 +19,5 @@ export const ProductData = ({ children }) => {
         {children}
     </Product.Provider>
 }
+export default ProductData;
 export const DownLoadData = () => useContext(Product)

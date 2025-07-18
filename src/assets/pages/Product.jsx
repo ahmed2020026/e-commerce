@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { DownLoadData } from "../sections/dataContent";
 import { Cart } from "../sections/Cart";
 
-export const Product = () => {
+const Product = () => {
     const { Data } = DownLoadData();
 
     const [product, setProduct] = useState([]);
@@ -23,7 +23,6 @@ export const Product = () => {
             setProduct(Data)
         }
     }
-
     return (
         <>
             <section className="pt-30">
@@ -44,3 +43,5 @@ export const Product = () => {
         </>
     )
 }
+
+export default Product;
