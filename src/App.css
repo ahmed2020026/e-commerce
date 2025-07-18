@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.container {
+    @apply mx-auto p-3 relative;
+}
+
+.active {
+    @apply text-sky-600 border-b-3
+}
+
+.hero-image {
+    @apply top-3/6 -translate-y-3/6
+}
+
+.hero-image-x {
+    @apply left-3/6 -translate-x-3/6
+}
+
+.link:hover {
+    @apply bg-gray-100
+}
+
+section {
+    @apply min-h-screen
+}
+
+.btn-link:hover {
+    @apply bg-transparent text-sky-500
+}
