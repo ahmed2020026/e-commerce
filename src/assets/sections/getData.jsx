@@ -21,7 +21,7 @@ export const GetData = () => {
     const handleChange = (e) => {
         const newProduct = Data.filter((ele) => ele.category == e.target.value);
         setProduct(newProduct);
-        if (e == 'all') {
+        if (e.target.value == 'all') {
             setProduct(Data)
         }
     }
@@ -39,8 +39,8 @@ export const GetData = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10">
                             {
                                 product.map((ele, index) => {
-                                    if(index < 4){
-                                        return <Cart product = {ele} key={index}/>
+                                    if (index < 4) {
+                                        return <Cart product={ele} key={index} />
                                     }
                                 })
                             }

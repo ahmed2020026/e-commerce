@@ -19,7 +19,7 @@ const Product = () => {
     const handleChange = (e) => {
         const newProduct = Data.filter((ele) => ele.category == e.target.value);
         setProduct(newProduct);
-        if (e == 'all') {
+        if (e.target.value == 'all') {
             setProduct(Data)
         }
     }
