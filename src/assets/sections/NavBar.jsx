@@ -3,11 +3,10 @@ import { Link, NavLink } from "react-router-dom"
 import MenuBtn from '@mui/icons-material/Menu';
 import Close from '@mui/icons-material/Close';
 import Cart from '@mui/icons-material/ShoppingCart';
-import Login from '@mui/icons-material/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle'; 
 import { useRef, useState } from "react";
 import { useOutsideClick } from "./useOutSideClick";
 import { getProductCart } from "./addToCart";
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 
 
 export const Header = () => {
@@ -59,12 +58,7 @@ export const Header = () => {
                     <div className={`p-1 cursor-pointer ${openMenu ? 'block' : 'hidden'}`}><Close /></div>
                     <Link to="/checkout" className={`p-1 cursor-pointer relative`}><Cart /> <span className="bg-red-600 absolute -top-2 hero-image-x text-xs px-1 text-white rounded-full">{cartItems.length}</span></Link>
                     <div className="p-1 cursor-pointer">
-                        <SignedOut>
-                            <SignInButton className='bg-sky-500 text-white px-2 py-1 rounded-lg cursor-pointer' />
-                        </SignedOut>
-                        <SignedIn>
-                            <UserButton />
-                        </SignedIn>
+                        <AccountCircleIcon />
                     </div>
                 </div>
             </div>
