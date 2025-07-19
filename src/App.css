@@ -27,3 +27,32 @@ section {
 .btn-link:hover {
     @apply bg-transparent text-sky-500
 }
+
+.edd-cart-empty {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 40px;
+    border-radius: 6px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.viewPort {
+    @apply h-50 relative;
+}
+
+.edd-cart-empty h3 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #133f3f;
+}
+
+.edd-cart-empty a:hover {
+    background: #006ea1;
+}

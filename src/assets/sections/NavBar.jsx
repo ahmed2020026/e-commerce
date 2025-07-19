@@ -1,6 +1,5 @@
 import { NavLinks } from "./images/data"
 import { Link, NavLink } from "react-router-dom"
-import Search from '@mui/icons-material/Search';
 import MenuBtn from '@mui/icons-material/Menu';
 import Close from '@mui/icons-material/Close';
 import Cart from '@mui/icons-material/ShoppingCart';
@@ -8,15 +7,17 @@ import Login from '@mui/icons-material/Login';
 import { useRef, useState } from "react";
 import { useOutsideClick } from "./useOutSideClick";
 import { getProductCart } from "./addToCart";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+
 
 export const Header = () => {
     const { cartItems } = getProductCart();
     /* function Open & close Search Input */
     const [openSearch, setOpenSearch] = useState(false);
     const searchRef = useRef();
-    
-    useOutsideClick(searchRef, () => setOpenSearch(false));
-    const openSearchFnc = (e) => setOpenSearch(e);
+
+    /* useOutsideClick(searchRef, () => setOpenSearch(false));
+    const openSearchFnc = (e) => setOpenSearch(e); */
 
     /* function Open & close Menu */
     const [openMenu, setOpenMenu] = useState(false);
@@ -54,16 +55,17 @@ export const Header = () => {
                 {/* icons Controlling */}
 
                 <div className="flex gap-1.5 flex-1 items-center justify-end">
-                    <div className="p-1 relative flex-1 text-right ml-3" ref={searchRef}>
-                        <span className={`cursor-pointer ${openSearch ? 'text-sky-500' : ''}`} onClick={() => openSearchFnc(!openSearch)}><Search className="pointer-events-none" /></span>
-                        <div className={`p-1  border-3 border-sky-500 absolute hero-image right-0 duration-400  rounded-2xl ${openSearch ? 'w-full md:w-56 opacity-100' : 'w-0 md:w-0 opacity-0'} `}>
-                            <input type="text" className="p-1 serch px-3 text-sm rounded-2xl w-full outline-0" name='search' placeholder="Search" />
-                        </div>
-                    </div>
                     <div className={`p-1 cursor-pointer md:hidden  ${openMenu ? 'hidden' : 'block'}`} ref={menuRef} onClick={() => openMenuFuc(!openMenu)}><MenuBtn /></div>
                     <div className={`p-1 cursor-pointer ${openMenu ? 'block' : 'hidden'}`}><Close /></div>
                     <Link to="/checkout" className={`p-1 cursor-pointer relative`}><Cart /> <span className="bg-red-600 absolute -top-2 hero-image-x text-xs px-1 text-white rounded-full">{cartItems.length}</span></Link>
-                    <div className="p-1 cursor-pointer"><Login /></div>
+                    <div className="p-1 cursor-pointer">
+                        <SignedOut>
+                            <SignInButton className='bg-sky-500 text-white px-2 py-1 rounded-lg cursor-pointer' />
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
+                    </div>
                 </div>
             </div>
         </>
