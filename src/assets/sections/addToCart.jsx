@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
 
     const calcTatalPrice = useMemo(() => {
         const prices =  cartItems.map(ele => {
-            return ele.discount? ele.price - ele.price * 4 / 100: ele.price
+            return ele.discount? ele.price - ele.price * ele.discount / 100: ele.price
         }) 
         return prices.reduce((acc , current) => acc + current,0)
     } ,[cartItems])

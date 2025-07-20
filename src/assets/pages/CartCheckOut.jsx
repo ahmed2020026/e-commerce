@@ -6,7 +6,11 @@ import View from "../sections/View";
 const CheckOutCart = () => {
     const { cartItems, removeFromCart, clearCart, calcTatalPrice } = getProductCart();
     const priceAfterDiscount = (price, discount) => (price - price * discount / 100);
-
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        //behavior: "smooth"
+    });
     return (
         <>
             <section className="pt-15 pb-10">
