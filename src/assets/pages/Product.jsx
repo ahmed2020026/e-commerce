@@ -7,7 +7,11 @@ const Product = () => {
     const category = useRef();
     const max = useRef();
     const min = useRef();
-    
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        //behavior: "smooth"
+    });
     const [product, setProduct] = useState([]);
     useEffect(() => {
         setProduct(Data)
