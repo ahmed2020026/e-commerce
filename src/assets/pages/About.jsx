@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
 
 const About = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        //behavior: "smooth"
+    });
     return (
         <section className="pt-35 pb-8 px-3">
             <div className="container shadow-md border-t border-t-[#cccccc57] rounded-md">

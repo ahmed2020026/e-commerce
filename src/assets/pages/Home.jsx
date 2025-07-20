@@ -5,6 +5,11 @@ import { Services } from "../sections/Services"
 
 
 export const HomePage = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        //behavior: "smooth"
+    });
     return (
         <>
             <Hero />
